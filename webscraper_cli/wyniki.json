@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Produkt A",
+        "price": "100",
+        "link": "http://przyklad.com/a"
+    },
+    {
+        "title": "Produkt B",
+        "price": "200",
+        "link": "http://przyklad.com/b"
+    }
+]
