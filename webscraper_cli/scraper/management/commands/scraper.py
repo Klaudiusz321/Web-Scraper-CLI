@@ -1,8 +1,7 @@
 from django.core.management.base import BaseCommand
 from scraper.webscraper import WebScraper
 from scraper.exporter import export_to_csv, export_to_json, export_to_xml
-from scraper.data_processing import clean_text, get_top_words, analyze_sentiment, extract_entities
-from scraper.db import save_result
+
 from scraper.api_client import APIClient
 import datetime
 import os
@@ -114,10 +113,7 @@ class Command(BaseCommand):
                         export_to_json(data_list, file_path)
                     elif format_type == "xml":
                         export_to_xml(data_list, file_path)
-                    elif format_type == "db":
-                        for item in data_list:
-                            save_result(item)
-                        file_path = "database"
+                    
                     else:
                         print(f"Unsupported format: {format_type}. Available formats: csv, json, xml, db")
                         continue
