@@ -1,5 +1,5 @@
 import requests
-from requests.auth import HTTPBasicAuth, HTTPDigestAuth
+from requests.auth import HTTPBasicAuth
 import json
 import os
 

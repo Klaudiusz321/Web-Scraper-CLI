@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Code Organization & Modularization:
+Split the large command file into smaller, focused modules
+Move standalone functions into appropriate utility modules
+Create a dedicated configuration module
+Error Handling & Logging:
+Implement proper logging instead of print statements
+Add comprehensive error handling with specific exceptions
+Add retry mechanisms for network operations
+Testing:
+Implement unit tests for each module
+Add integration tests for key workflows
+Create test fixtures and mocks for external services
+Documentation:
+Add docstrings to all classes and methods
+Create a comprehensive README with setup and usage instructions
+Add code examples for common operations
+Code Quality:
+Implement type hints throughout the codebase
+Follow consistent naming conventions
+Add linting and formatting tools
+Security Improvements:
+Store credentials securely (not hardcoded)
+Implement HTTPS certificate validation
+Add rate limiting for API requests
+Features:
+Add async/parallel scraping capability
+Create a proper configuration system with profiles
+Implement more export formats and visualization options
+Add a simple web interface for non-CLI users
+Infrastructure:
+Add containerization with Docker
+Create CI/CD pipeline for testing and deployment
+Add monitoring and alerting for production usage
+Performance Optimizations:
+Optimize database operations with connection pooling
+Implement caching for repeated requests
+Add pagination support for large datasets

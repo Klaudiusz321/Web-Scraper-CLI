@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Main web scraper CLI service
+  webscraper:
+    build: .
+    container_name: webscraper_cli
+    volumes:
+      - ./webscraper_cli/exported_data:/app/webscraper_cli/exported_data
+      - ./webscraper_cli/database:/app/webscraper_cli/database
+      - ./webscraper_cli/logs:/app/webscraper_cli/logs
+      - ./webscraper_cli/credentials:/app/webscraper_cli/credentials
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - MONGO_DB=webscraper
+      - LOG_LEVEL=INFO
+      - PYTHONPATH=/app
+    depends_on:
+      - mongo
+    # Keep the container running
+    tty: true
+    stdin_open: true
+    # For web interface (if applicable)
+    ports:
+      - "8000:8000"
+  
+  # MongoDB service
+  mongo:
+    image: mongo:5.0
+    container_name: webscraper_mongo
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=webscraper
+    # Set restart policy
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+    driver: local 
